@@ -65,7 +65,7 @@ class RecentlyPlayedStore {
     }
 }
 
-class Main {
+public class Main {
     public static void main(String[] args) {
         RecentlyPlayedStore store = new RecentlyPlayedStore(3);
 
