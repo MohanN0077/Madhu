@@ -65,11 +65,11 @@ class RecentlyPlayedStore {
     }
 }
 
-public class Main {
+class Main {
     public static void main(String[] args) {
         RecentlyPlayedStore store = new RecentlyPlayedStore(3);
 
-        User user = new User(1, "John Doe");
+        User user = new User(1, "Mohan Murali");
         Song song1 = new Song(1, "Song 1");
         Song song2 = new Song(2, "Song 2");
         Song song3 = new Song(3, "Song 3");
