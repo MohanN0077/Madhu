@@ -50,6 +50,7 @@ class RecentlyPlayedStore {
             store.put(user, new LinkedList<>());
         }
         LinkedList<Song> playlist = store.get(user);
+        playlist.remove(song);  // Remove the song if it already exists to maintain the most recent order
         playlist.addFirst(song);
         if (playlist.size() > capacity) {
             playlist.removeLast();
@@ -66,6 +67,23 @@ class RecentlyPlayedStore {
 
 public class Main {
     public static void main(String[] args) {
-        
+        RecentlyPlayedStore store = new RecentlyPlayedStore(3);
+
+        User user = new User(1, "John Doe");
+        Song song1 = new Song(1, "Song 1");
+        Song song2 = new Song(2, "Song 2");
+        Song song3 = new Song(3, "Song 3");
+        Song song4 = new Song(4, "Song 4");
+
+        store.addSong(user, song1);
+        store.addSong(user, song2);
+        store.addSong(user, song3);
+        store.addSong(user, song4);
+
+        List<Song> recentlyPlayed = store.getRecentlyPlayed(user);
+        System.out.println("Recently played songs:");
+        for (Song song : recentlyPlayed) {
+            System.out.println(song.getName());
+        }
     }
 }
